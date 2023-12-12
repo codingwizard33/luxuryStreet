@@ -1,10 +1,18 @@
 import mongoose from 'mongoose';
 
 const CartSchema = new mongoose.Schema({
-  userId: { type: mongoose.Types.ObjectId, required: true },
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
   items: [
     {
-      itemId: { type: mongoose.Types.ObjectId, required: true }
+      itemId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product',
+        required: true
+      }
     }
   ]
 }, { timestamps: true });
