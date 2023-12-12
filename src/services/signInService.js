@@ -7,10 +7,18 @@ export const signInService = async (req) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email: email });
 
-  if (!user) return { status: 404, message: 'The requested user not found' };
+  if (!user) 
+    return {
+      status: 404,
+      message: 'The requested user not found'
+    };
 
   const compared = await bcrypt.compare(password, user.password);
-  if (!compared) return { status: 403, message: 'The user credentials do not match' };
+  if (!compared)
+    return {
+      status: 403,
+      message: 'The user credentials do not match'
+    };
 
   const authToken = signJWT(user);
 

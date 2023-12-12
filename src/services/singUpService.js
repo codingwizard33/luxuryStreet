@@ -9,7 +9,11 @@ export const signUpService = async (req) => {
   const { firstName, lastName, email, password } = req.body;
   const { error } = signUpValidation.validate(req.body);
 
-  if (error) return { status: 500, message: error.details[0].message };
+  if (error)
+    return {
+      status: 500,
+      message: error.details[0].message
+    };
 
   const hashedPassword = await bcrypt.hash(password, 10);
   const { _id } = await Role.findOne({ name: 'user' });

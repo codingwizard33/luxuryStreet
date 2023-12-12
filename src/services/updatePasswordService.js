@@ -12,7 +12,11 @@ export const updatePasswordService = async (req) => {
   const user = await User.findById(_id);
   const checked = await bcrypt.compare(currentPassword, user.password);
 
-  if (!checked) return { status: 401, message: 'The user password was wrong' };
+  if (!checked)
+    return {
+      status: 401,
+      message: 'The user password was wrong'
+    };
 
   const { error } = passwordValidation.validate(req.body);
   if (error) return { status: 401, message: error.details[0].message };

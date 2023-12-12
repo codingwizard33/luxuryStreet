@@ -6,7 +6,11 @@ export const forgotPasswordService = async (req) => {
   const { email } = req.body;
   const user = await User.findOne({ email: email});
 
-  if (!user) return { status: 404, message: `The requested username does not found` };
+  if (!user)
+    return {
+        status: 404,
+        message: `The requested username does not found`
+    };
 
   try {
     var resetPasswordToken = signJWT(user);
