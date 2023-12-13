@@ -5,7 +5,11 @@ import { signJWT } from './jwtService.js';
 
 export const signInService = async (req) => {
   const { email, password } = req.body;
-  const user = await User.findOne({ email: email });
+  const user = await User.findOne({ email: email })
+    .populate({
+      path: 'role',
+      select: 'name'
+    });
 
   if (!user) 
     return {
