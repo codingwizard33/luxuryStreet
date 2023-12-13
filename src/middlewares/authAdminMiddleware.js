@@ -15,5 +15,5 @@ export const authAdminMiddleware = async (req, res, next) => {
     return res.status(403).json(error.message);
   }
   
-  next();
+  return next();
 };
