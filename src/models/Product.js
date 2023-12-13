@@ -8,7 +8,19 @@ const ProductSchema = new mongoose.Schema({
     ref: 'Category',
     required: true
   },
-  parameters: [] // ?
+  parameters: [
+    {
+      size: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Size'
+      },
+      color: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Color'
+      },
+      qty: { type: Number, required: true }
+    }
+  ]
 }, { timestamps: true });
 
 export default mongoose.model('Product', ProductSchema);
