@@ -1,5 +1,5 @@
 import { createCategoryService } from '../../services/admin/createCategoryService.js';
-import { editCategoryService } from '../../services/admin/editCategoryService.js';
+import { updateCategoryService } from '../../services/admin/updateCategoryService.js';
 import { deleteCategoryService } from '../../services/admin/deleteCategoryService.js';
 
 export const createCategory = async (req, res) => {
@@ -8,8 +8,8 @@ export const createCategory = async (req, res) => {
   return res.status(response.status).json(response.message);
 };
 
-export const editCategory = async (req, res) => {
-  const response = await editCategoryService(req);
+export const updateCategory = async (req, res) => {
+  const response = await updateCategoryService(req);
 
   return res.status(response.status).json(response.message);
 };

@@ -1,6 +1,6 @@
 import Category from '../../models/Category.js';
 
-export const editCategoryService = async (req) => {
+export const updateCategoryService = async (req) => {
   const { _id, name } = req.body;
 
   try {
