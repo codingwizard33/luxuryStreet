@@ -1,4 +1,4 @@
-import { verifyJWT } from '../services/jwtService.js';
+import { verifyJWT } from '../services/auth/jwtService.js';
 
 export const authAdminMiddleware = async (req, res, next) => {
   try {

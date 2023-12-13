@@ -1,8 +1,8 @@
 import bcrypt from 'bcrypt';
 
-import User from '../models/User.js';
+import User from '../../models/User.js';
 import { verifyJWT } from './jwtService.js';
-import { passwordValidation } from '../validations/passwordValidation.js'
+import { passwordValidation } from '../../validations/passwordValidation.js'
 
 export const resetPasswordService = async (req) => {
   const resetPasswordToken = req.params.resetPasswordToken;

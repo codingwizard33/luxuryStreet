@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 
-import User from '../models/User.js';
-import { passwordValidation } from '../validations/passwordValidation.js';
+import User from '../../models/User.js';
+import { passwordValidation } from '../../validations/passwordValidation.js';
 import { verifyJWT } from './jwtService.js';
 
 export const updatePasswordService = async (req) => {

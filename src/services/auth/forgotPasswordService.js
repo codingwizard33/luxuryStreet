@@ -1,5 +1,5 @@
-import { forgotPasswordEmail } from '../emails/forgotPasswordEmail.js';
-import User from '../models/User.js';
+import { forgotPasswordEmail } from '../../emails/forgotPasswordEmail.js';
+import User from '../../models/User.js';
 import { signJWT } from './jwtService.js';
 
 export const forgotPasswordService = async (req) => {

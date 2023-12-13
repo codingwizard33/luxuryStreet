@@ -1,9 +1,9 @@
-import { forgotPasswordService } from '../services/forgotPasswordService.js';
-import { refreshTokenService } from '../services/refreshTokenService.js';
-import { resetPasswordService } from '../services/resetPasswordService.js';
-import { signInService } from '../services/signInService.js';
-import { signUpService } from '../services/singUpService.js';
-import { updatePasswordService } from '../services/updatePasswordService.js';
+import { forgotPasswordService } from '../services/auth/forgotPasswordService.js';
+import { refreshTokenService } from '../services/auth/refreshTokenService.js';
+import { resetPasswordService } from '../services/auth/resetPasswordService.js';
+import { signInService } from '../services/auth/signInService.js';
+import { signUpService } from '../services/auth/singUpService.js';
+import { updatePasswordService } from '../services/auth/updatePasswordService.js';
 
 export const signUp = async (req, res) => {
   const response = await signUpService(req);

@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 
-import User from '../models/User.js';
+import User from '../../models/User.js';
 import { signJWT } from './jwtService.js';
 
 export const signInService = async (req) => {
