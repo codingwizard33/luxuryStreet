@@ -7,8 +7,10 @@ import {
   updateCategory
 } from '../controllers/admin/categoryController.js';
 import {
+  addProductParameter,
   createProduct,
   deleteProduct,
+  deleteProductParameter,
   getProducts,
   updateProduct
 } from '../controllers/admin/productController.js';
@@ -36,6 +38,8 @@ router.post('/product', createProduct);
 router.put('/product', updateProduct);
 router.delete('/product', deleteProduct);
 router.get('/products', getProducts);
+router.put('/product-parameter', addProductParameter);
+router.delete('/product-parameter', deleteProductParameter);
 
 router.post('/size', createSize);
 router.put('/size', updateSize);
