@@ -4,12 +4,12 @@ import {
   addItemToCart,
   removeItemFromCart
 } from '../controllers/cartController.js';
-import { getCategory } from '../controllers/categoryController.js';
+import { getCategories } from '../controllers/categoryController.js';
 
 const router = express.Router();
 
 router.put('/add-to-cart', addItemToCart);
 router.delete('/remove-from-cart', removeItemFromCart);
-router.get('/category', getCategory);
+router.get('/categories', getCategories);
 
 export default router;

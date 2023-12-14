@@ -1,9 +1,9 @@
-import Category from '../models/Category.js';
+import Category from '../../models/Category.js';
 
-export const getCategoryService = async () => {
+export const getCategoriesService = async () => {
   try {
     const categories = await Category.find();
-  
+
     return {
       status: 200,
       message: categories
