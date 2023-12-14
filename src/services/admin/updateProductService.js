@@ -1,19 +1,23 @@
 import Product from '../../models/Product.js';
 
 export const updateProductService = async (req) => {
-  const { _id, name, price, categoryId, sizeId, colorId, qty } = req.body;
+  const { _id, parameterId, name, price, categoryId, sizeId, colorId, qty } = req.body;
 
   try {
-    const product = await Product.findById(_id);
-
-    product.name = name;
-    product.price = price;
-    product.categoryId = categoryId;
-    product.parameters[0].size = sizeId;
-    product.parameters[0].color = colorId;
-    product.parameters[0].qty = qty;
-
-    await product.save();
+    await Product.findOneAndUpdate(
+      { _id, 'parameters._id': parameterId },
+      { $set:
+        {
+          name: name,
+          price: price,
+          categoryId: categoryId,
+          'parameters.$.size': sizeId,
+          'parameters.$.color': colorId,
+          'parameters.$.qty': qty
+        }
+      },
+      { new: true }
+    );
 
     return {
       status: 201,
