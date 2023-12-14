@@ -2,7 +2,7 @@ import Product from '../../models/Product.js';
 
 export const getProductsService = async () => {
   try {
-    const products = Product.find();
+    const products = await Product.find();
 
     return {
       status: 200,
