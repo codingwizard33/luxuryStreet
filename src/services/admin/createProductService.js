@@ -1,10 +1,13 @@
+import fs from 'fs';
+
 import Product from '../../models/Product.js';
 
 export const createProductService = async (req) => {
   const { name, price, categoryId, sizeId, colorId, qty } = req.body;
+  const { files } = req;
 
   try {
-    await Product.create({
+    const product = await Product.create({
       name,
       price,
       categoryId,
@@ -14,7 +17,8 @@ export const createProductService = async (req) => {
           color: colorId,
           qty
         }
-      ]
+      ],
+      images: files.map(file => ({ path: file.path }))
     });
 
     return {
@@ -22,6 +26,10 @@ export const createProductService = async (req) => {
       message: 'OK'
     };
   } catch (error) {
+    files.forEach(filePath => {
+      fs.unlink(filePath.path, () => {});
+    });
+
     return {
       status: 500,
       message: error.message

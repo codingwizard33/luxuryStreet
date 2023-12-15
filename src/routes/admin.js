@@ -26,6 +26,7 @@ import {
   getColors,
   updateColor
 } from '../controllers/admin/colorController.js';
+import upload from '../helpers/imageUpload.js';
 
 const router = express.Router();
 
@@ -34,7 +35,7 @@ router.put('/category', updateCategory);
 router.delete('/category', deleteCategory);
 router.get('/categories', getCategories);
 
-router.post('/product', createProduct);
+router.post('/product', upload.array('images'), createProduct);
 router.put('/product', updateProduct);
 router.delete('/product', deleteProduct);
 router.get('/products', getProducts);

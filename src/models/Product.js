@@ -20,6 +20,11 @@ const ProductSchema = new mongoose.Schema({
       },
       qty: { type: Number, required: true }
     }
+  ],
+  images: [
+    {
+      path: { type: String }
+    }
   ]
 }, { timestamps: true });
 
