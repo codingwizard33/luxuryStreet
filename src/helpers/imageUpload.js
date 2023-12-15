@@ -10,8 +10,9 @@ const storage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now();
+    const fileOriginalName = file.originalname.replace(/\.[^.\/]+$/, '').replace(/\s+/g, '').replace(/[^\w\s]/gi, '');
     const extension = path.extname(file.originalname);
-    cb(null, uniqueSuffix + extension);
+    cb(null, fileOriginalName + uniqueSuffix + extension);
   }
 });
 
