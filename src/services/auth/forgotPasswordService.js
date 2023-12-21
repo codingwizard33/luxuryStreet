@@ -4,13 +4,18 @@ import { signJWT } from './jwtService.js';
 
 export const forgotPasswordService = async (req) => {
   const { email } = req.body;
-  const user = await User.findOne({ email: email});
+  const user = await User.findOne({ email: email });
 
   if (!user)
     return {
         status: 404,
         message: `The requested username does not found`
     };
+  
+  await user.populate({
+    path: 'role',
+    select: 'name'
+  });
 
   try {
     var resetPasswordToken = signJWT(user);
